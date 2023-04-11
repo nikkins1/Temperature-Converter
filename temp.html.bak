@@ -1,0 +1,90 @@
+<html>
+<head>
+<title> temperature converter</title>
+<style>
+html,body{
+background-color:#D6EEEE;}
+.bg{
+background-color:rgb(0,0,0);
+background-color:rgba(0,0,0,0.3);
+font-weight:bold;
+top:21%;
+left:32%;
+height:53%;
+width:30%;
+z-index:2;
+padding:20px;
+text-align:center;
+font-family:arial;
+position:absolute;
+border-radius:20px;
+
+}
+.d{
+display:flex;
+text-align:left;
+}
+
+#result{
+height:20px;
+width:180px;
+background-color:white;
+border:0px;
+
+}
+
+.d1{
+margin-right: 60px;
+}
+</style>
+</head>
+<body>
+<div class="bg">
+<h2> Temperature Converter</h2><br>
+<div class="d">
+<div class="d1">
+Degrees:<br><br>
+<input type="number" id="degree" maxlength="3" style="border:0px; width:180px; height:20px;" >
+
+</div>
+<div class ="d2">
+
+Type:<br><br>
+<select id="type" style="border:0px; width:180px; height:20px; text-align:justify">
+<option value="Fahrenheit" id="Fahrenheit">Fahrenheit</option>
+<option value="Celcius" id="Celcius">Celcius</option>
+</select>
+</div>
+</div>
+
+<br><br>Result:<br><br>
+<!--<input type="text" id="result" style="border:0px; width:180px; height:20px">-->
+
+<div id="result"></div>
+
+<br><br>
+<button  id="btn" onclick="temp()" style="background-color:#D6EEEE; border:0px ; height:20px; width:180px">
+Convert</button>
+</div>
+
+<script>
+function temp()
+{
+ const inp=document.querySelector("#degree").value;
+ const type=document.querySelector("#type").value;
+ const result=document.querySelector("#result");
+
+ if(type==="Celcius")
+ {
+ const temp=(inp*9/5)+32;
+ result.innerHTML = `${temp.toFixed(2)} &deg;F`;
+ }
+ else if(type==="Fahrenheit")
+ {
+ const temp=(inp-32)*5/9;
+ result.innerHTML= `${temp.toFixed(2)}&deg;C`;
+ }
+}
+</script>
+</body>
+</html>
